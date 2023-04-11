@@ -13,7 +13,7 @@ export async function fetchMoviePopular({ commit }) {
 export async function fetchMovieNowPlaying({ commit }) {
   try {
     const { data } = await axiosClient.get("movie/now_playing");
-    const res = data.results.slice(0, 4);
+    const res = data.results;
     if (res) {
       commit("setMovieNowPlaying", res);
     }

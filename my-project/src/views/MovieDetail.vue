@@ -1,8 +1,8 @@
 <template>
-  <main>
-    <div v-for="item in movie" :key="item" class="grid grid-cols-3">
-      <LeftDetailVue :movie="item" class="col-span-1" />
-      <RightDetailVue :movie="item" class="col-span-2" />
+  <main class="h-[200vh]">
+    <div class="grid grid-cols-12 justify-end">
+      <RightDetailVue :movie="movie" class="col-span-9" />
+      <LeftDetailVue :data="movie" class="col-span-1" />
     </div>
   </main>
 </template>
@@ -13,14 +13,12 @@ import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import axiosClient from "../api/axiosClient";
 const route = useRoute();
-const movie = ref(null);
+
+const movie = ref([]);
+
 onMounted(() => {
-  axiosClient.get(`movie/${route.params.id}`).then((data) => {
-    movie.value = data;
-    console.log(movie.value);
+  axiosClient.get(`movie/${route.params.id}`).then(({ data }) => {
+    movie.value = Array.isArray(data) ? data : [data];
   });
 });
-function getBackdropImage(item) {
-  return "https://image.tmdb.org/t/p/original" + item.backdrop_path;
-}
 </script>
