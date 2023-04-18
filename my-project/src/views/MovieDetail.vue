@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[200vh] flex-col items-center justify-center bg-slate-100">
+  <div class="h-fit flex-col items-center justify-center bg-slate-100">
     <ContainerDetail :movieById="data" />
     <hr class="border-t-2 mx-8 mt-8" />
     <div
