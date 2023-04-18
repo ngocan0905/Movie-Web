@@ -1,28 +1,64 @@
 <template>
   <div
-    class="flex justify-center items-center z-[101] w-screen h-screen top-0 left-0 absolute bg-[#00000056]"
+    class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60"
   >
     <div
-      class="flex flex-col justify-center rounded-md h-[900px] w-[1600px] bg-white"
+      class="flex flex-col justify-center w-4/5 max-w-1600px h-4/5 max-h-900px bg-white rounded-md"
     >
-      <p class="text-center">hehe</p>
-      <button @click="closeModal" class="self-center flex">Close</button>
+      <h2 class="text-center text-lg font-bold mb-4">
+        {{ trailerContent.title }}
+      </h2>
+      <div v-if="hasVideo" class="relative pb-[56.25%] mb-4">
+        <iframe
+          :src="videoUrl"
+          class="absolute top-0 left-0 w-full h-full"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button
+        @click="closeModal"
+        class="self-center py-2 px-4 bg-gray-200 text-red-700 text-xl font-medium rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      >
+        Close
+      </button>
     </div>
   </div>
 </template>
+
 <script setup>
+import { defineProps, defineEmits, computed } from "vue";
+
 const props = defineProps({
   trailerContent: {
-    type: String,
+    type: Object,
+    required: true,
   },
 });
+
 const emits = defineEmits(["close-modal"]);
+
+const hasVideo = computed(() => {
+  return !!props.trailerContent.videos.results.find(
+    (e) => e.type === "Trailer"
+  );
+});
+
+const videoUrl = computed(() => {
+  const video = props.trailerContent?.videos?.results?.find(
+    (e) => e.type === "Trailer"
+  );
+  return `https://www.youtube.com/embed/${video?.key}`;
+});
+
 function closeModal() {
   emits("close-modal");
 }
 </script>
-<style>
-.asdasd {
-  background: #00000056;
+
+<style scoped>
+button:focus {
+  outline: none;
+  box-shadow: none;
 }
 </style>

@@ -9,17 +9,13 @@
         clickable: true,
       }"
     >
-      <SwiperSlide
-        v-for="(item, index) in data"
-        :key="index"
-        :style="{
-          background: `  url(${getBackdropImage(
-            item
-          )})  no-repeat center center / cover`,
-        }"
-        class=""
-      >
+      <SwiperSlide v-for="(item, index) in data" :key="index" class="">
         <div
+          :style="{
+            background: `  url(${getBackdropImage(
+              item
+            )})  no-repeat center center / cover`,
+          }"
           class="w-full h-full grid grid-cols-3 overflow-hidden place-content-center"
         >
           <div class="">
@@ -74,6 +70,9 @@ onMounted(() => store.dispatch("fetchMovieNowPlaying"));
   height: 100vh;
   overflow: visible;
   background: #00000060;
+}
+.swiper-slide {
+  opacity: 0.5;
 }
 .swiper-slide img {
   filter: blur();

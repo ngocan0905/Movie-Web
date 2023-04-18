@@ -1,25 +1,25 @@
 <template>
   <div
     v-if="movieById"
-    class="mt-[100px] h-fit text-xl flex justify-center py-10"
+    class="mt-[100px] h-fit text-xl flex justify-center py-10 bg-slate-200"
     style=""
   >
-    <div class="flex items-center max-w-[70%]">
+    <div class="flex items-center max-w-[80%]">
       <img
         :src="`https://image.tmdb.org/t/p/original${movieById.poster_path}`"
         class="h-[500px] w-auto rounded-md"
         alt=""
       />
-      <div>
+      <div class="ml-8">
         <div class="text-4xl text-red-500 font-bold text-center">
-          {{ movieById.title }}
+          {{ movieById.title + ` (${movieById.release_date.slice(0, 4)})` }}
         </div>
         <div class="flex">
-          <h1>Release day:</h1>
+          <h3 class="font-medium">Release day:</h3>
           <div class="indent-3">{{ movieById.release_date }}</div>
         </div>
         <div class="flex">
-          <h3>Genres:</h3>
+          <h3 class="font-medium">Genres:</h3>
           <div
             v-for="(genres, index) in movieById.genres"
             :key="index"
@@ -31,14 +31,14 @@
           </div>
         </div>
         <div class="flex">
-          <h1>Votes:</h1>
+          <h1 class="font-medium">Votes:</h1>
           <div class="mr-2 indent-3">{{ movieById.vote_count }} times</div>
           <div>-- {{ movieById.vote_average }}/10</div>
         </div>
 
         <div>
-          <h1 class="text-2xl">Overview</h1>
-          <div>{{ movieById.overview }}</div>
+          <h1 class="text-2xl font-medium">Overview</h1>
+          <div class="indent-3">{{ movieById.overview }}</div>
         </div>
       </div>
     </div>

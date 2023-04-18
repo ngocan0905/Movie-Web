@@ -1,6 +1,9 @@
 <template>
   <div class="grid">
-    <main class="">
+    <main class="relative text-slate-100">
+      <h1 class="absolute text-4xl z-50 top-20 right-16 font-semibold">
+        Now playing
+      </h1>
       <SlideHomePage />
     </main>
   </div>
