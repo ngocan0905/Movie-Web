@@ -2,7 +2,7 @@ import axiosClient from "../api/axiosClient";
 export async function fetchMoviePopular({ commit }) {
   try {
     const { data } = await axiosClient.get("movie/popular");
-    const res = data.results.slice(0, 6);
+    const res = data.results;
     if (res) {
       commit("setMoviePopular", res);
     }

@@ -13,10 +13,11 @@
         v-for="(item, index) in data"
         :key="index"
         :style="{
-          background: `url(${getBackdropImage(
+          background: `  url(${getBackdropImage(
             item
-          )}) no-repeat center center / cover`,
+          )})  no-repeat center center / cover`,
         }"
+        class=""
       >
         <div
           class="w-full h-full grid grid-cols-3 overflow-hidden place-content-center"
@@ -25,7 +26,7 @@
             <img
               :src="`https://image.tmdb.org/t/p/original${item.poster_path}`"
               alt=""
-              class="cover"
+              class="cover h-[800px] w-auto ml-8 hover:shadow-2xl rounded-md"
             />
           </div>
 
@@ -72,12 +73,9 @@ onMounted(() => store.dispatch("fetchMovieNowPlaying"));
   width: calc(100vw);
   height: 100vh;
   overflow: visible;
-  background: #000000f6;
+  background: #00000060;
 }
 .swiper-slide img {
-  width: 100%;
-  filter: blur(0);
-  border-radius: 100%;
-  padding: 0 36px;
+  filter: blur();
 }
 </style>
