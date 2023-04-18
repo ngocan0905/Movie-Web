@@ -16,7 +16,6 @@ const store = useStore();
 const movieNowPlaying = computed(() => store.state.movieNowPlaying);
 onMounted(() => {
   store.dispatch("fetchMovieNowPlaying");
-  console.log(movieNowPlaying);
 });
 </script>
 <style>
