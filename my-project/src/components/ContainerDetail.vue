@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="movieById"
-    class="mt-[100px] h-fit text-xl flex justify-center py-10 bg-slate-200"
+    class="h-fit text-xl flex justify-center py-10 bg-slate-300"
     style=""
   >
     <div class="flex items-center max-w-[80%]">

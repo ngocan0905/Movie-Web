@@ -45,7 +45,7 @@ import { Pagination, Navigation } from "swiper";
 
 const props = defineProps({
   creditsData: {
-    type: Array,
+    type: Object,
     required: true,
   },
 });

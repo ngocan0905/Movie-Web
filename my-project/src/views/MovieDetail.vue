@@ -1,5 +1,7 @@
 <template>
-  <div class="h-fit flex-col items-center justify-center bg-slate-100">
+  <div
+    class="h-fit flex-col items-center justify-center bg-slate-100 pb-10 pt-[100px]"
+  >
     <ContainerDetail :movieById="data" />
     <hr class="border-t-2 mx-8 mt-8" />
     <div
@@ -34,18 +36,18 @@
         </div>
         <div
           v-if="data.homepage"
-          class="bg-gray-800 text-center py-2 mt-2 px-4 rounded-t-lg"
+          class="bg-gray-800 text-center py-2 mt-2 px-4 rounded-t-lg cursor-pointer"
         >
           <a
             class="hover:text-red-400 text-2xl text-red-600 rounded-md font-medium"
             :href="data.homepage"
-            target="blank"
+            target="_blank"
           >
             Home page
           </a>
         </div>
         <div
-          class="bg-red-600 text-gray-800 hover:text-gray-400 py-2 px-4 text-center text-2xl font-medium rounded-b-lg"
+          class="bg-red-600 text-gray-800 hover:text-gray-400 py-2 px-4 text-center text-2xl font-medium rounded-b-lg cursor-pointer"
           @click="showModal"
         >
           Trailer
@@ -75,7 +77,6 @@ onBeforeMount(async () => {
       `movie/${route.params.id}?append_to_response=credits,videos,images`
     );
     data.value = response.data;
-    console.log(data.value);
   } catch (error) {
     console.log(error);
   }

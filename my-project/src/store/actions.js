@@ -21,3 +21,14 @@ export async function fetchMovieNowPlaying({ commit }) {
     console.log(error);
   }
 }
+export async function fetchGenresMovie({ commit }) {
+  try {
+    const { data } = await axiosClient.get("genre/movie/list");
+    const res = data.genres;
+    if (res) {
+      commit("setGenresMovie", res);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
