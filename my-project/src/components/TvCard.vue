@@ -4,7 +4,7 @@
     class="bg-red-200 mx-2 my-4 rounded-md overflow-hidden max-w-[300px] p-2 hover:shadow-2xl hover:scale-105"
   >
     <img :src="imageSrc" class="h-auto w-[300px] rounded-t-md" alt="" />
-    <h3 class="text-center py-2 font-medium">{{ data.title }}</h3>
+    <h3 class="text-center py-2 font-medium">{{ data.name }}</h3>
     <div class="flex flex-wrap">
       <div v-for="item in data.genre_ids" :key="item" class="">
         <div
@@ -28,16 +28,16 @@ const props = defineProps({
     required: true,
   },
 });
-const genresMovie = ref([]);
+const genresTv = ref([]);
 onMounted(async () => {
-  await store.dispatch("fetchGenresMovie");
-  genresMovie.value = store.state.genresMovie;
+  await store.dispatch("fetchGenresTv");
+  genresTv.value = store.state.genresTv;
 });
 watchEffect(() => {
-  genresMovie.value = store.state.genresMovie;
+  genresTv.value = store.state.genresTv;
 });
 function genreTypeName(genre_id) {
-  const genre = genresMovie.value.find((genre) => genre.id === genre_id);
+  const genre = genresTv.value.find((genre) => genre.id === genre_id);
   return genre ? genre.name : "";
 }
 

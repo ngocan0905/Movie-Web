@@ -1,25 +1,21 @@
 <template>
-  <div class="grid">
-    <main class="relative text-slate-100">
+  <main class="text-slate-100">
+    <div class="relative w-screen overflow-hidden">
       <h1 class="absolute text-4xl z-50 top-20 right-16 font-semibold">
-        Now playing
+        Now Playing ( Movie )
       </h1>
       <SlideHomePage />
-    </main>
-  </div>
+    </div>
+    <div class="relative w-screen overflow-hidden">
+      <h1 class="absolute text-4xl z-50 top-20 right-16 font-semibold">
+        Airing Today ( TV )
+      </h1>
+      <SlideTvHomePage />
+    </div>
+  </main>
 </template>
 <script setup>
-import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
 import SlideHomePage from "../components/SlideHomePage.vue";
-const store = useStore();
-const movieNowPlaying = computed(() => store.state.movieNowPlaying);
-onMounted(() => {
-  store.dispatch("fetchMovieNowPlaying");
-});
+import SlideTvHomePage from "../components/SlideTvHomePage.vue";
 </script>
-<style>
-.as {
-  color: rgba(0, 0, 0, 0.247);
-}
-</style>
+<style></style>

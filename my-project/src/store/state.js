@@ -1,5 +1,6 @@
 export default {
-  moviePopular: [],
   movieNowPlaying: [],
+  tvAiringToday: [],
   genresMovie: [],
+  genresTv: [],
 };

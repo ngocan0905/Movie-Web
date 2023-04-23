@@ -18,14 +18,14 @@
           >Movies</router-link
         >
         <router-link
-          :to="{ name: 'series' }"
+          :to="{ name: 'tv' }"
           class="li hover:text-red-800 mx-6 text-red-500"
           >Series</router-link
         >
         <router-link
-          :to="{ name: 'tv-show' }"
+          :to="{ name: 'people' }"
           class="li text-red-500 hover:text-red-800"
-          >TV Shows</router-link
+          >People</router-link
         >
       </ul>
     </div>

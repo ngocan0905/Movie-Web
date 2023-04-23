@@ -12,11 +12,16 @@
       />
       <div class="ml-8">
         <div class="text-4xl text-red-500 font-bold text-center">
-          {{ movieById.title + ` (${movieById.release_date.slice(0, 4)})` }}
+          {{ movieById.title || movieById.name }}
+          <div v-if="movieById.release_date">
+            {{ movieById.release_date.slice(0, 4) }}
+          </div>
         </div>
         <div class="flex">
           <h3 class="font-medium">Release day:</h3>
-          <div class="indent-3">{{ movieById.release_date }}</div>
+          <div class="indent-3">
+            {{ movieById.release_date || movieById.first_air_date }}
+          </div>
         </div>
         <div class="flex">
           <h3 class="font-medium">Genres:</h3>
@@ -45,10 +50,9 @@
   </div>
 </template>
 <script setup>
-const props = defineProps({
+const { props } = defineProps({
   movieById: {
     type: Object,
-    required: true,
   },
 });
 </script>

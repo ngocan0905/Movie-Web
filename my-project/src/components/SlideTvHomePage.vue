@@ -1,5 +1,5 @@
 <template>
-  <div class="m-[0 ,auto]">
+  <div class="m-[0,auto]">
     <Swiper
       :modules="[EffectFade, Pagination, Navigation]"
       :effect="'fade'"
@@ -8,6 +8,7 @@
       :pagination="{
         clickable: true,
       }"
+      class=""
     >
       <SwiperSlide v-for="(item, index) in data" :key="index" class="">
         <div
@@ -30,12 +31,12 @@
             class="text-2xl bottom-10 flex flex-col items-center col-span-2 justify-center"
           >
             <div class="text-5xl hover:drop-shadow-2xl font-bold">
-              {{ item.original_title }}
+              {{ item.name }}
             </div>
             <div>{{ item.release_date }}</div>
             <div>{{ item.vote_average }}</div>
             <router-link
-              :to="{ name: 'movie-detail', params: { id: item.id } }"
+              :to="{ name: 'tv-detail', params: { id: item.id } }"
               class="bg-red-500 shadow-2xl w-fit px-5 py-3 shadow-red-900 drop-shadow-2xl hover:bg-red-700 hover:scale-105 hover:underline"
             >
               Watch now
@@ -56,13 +57,13 @@ import "swiper/css";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
-const data = computed(() => store.state.movieNowPlaying);
+const data = computed(() => store.state.tvAiringToday);
 function getBackdropImage(item) {
   return "https://image.tmdb.org/t/p/original" + item.backdrop_path;
 }
 
 // const imageData = `https://image.tmdb.org/t/p/w500` +
-onMounted(() => store.dispatch("fetchMovieNowPlaying"));
+onMounted(() => store.dispatch("fetchTvAiringToday"));
 </script>
 <style scoped>
 .swiper {

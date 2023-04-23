@@ -27,7 +27,7 @@
       class="flex flex-wrap col-span-10 bg-red-50 items-center justify-center font-medium"
     >
       <div v-for="movie in movieList" :key="movie.id" class="">
-        <router-link :to="{ name: 'detail', params: { id: movie.id } }"
+        <router-link :to="{ name: 'movie-detail', params: { id: movie.id } }"
           ><MovieCard :data="movie"
         /></router-link>
       </div>

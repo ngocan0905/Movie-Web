@@ -16,7 +16,7 @@
       <aside class="col-span-2">
         <div>
           <h3 class="text-2xl font-medium">Original Title</h3>
-          <div>{{ data.original_title }}</div>
+          <div>{{ data.name }}</div>
         </div>
         <div>
           <h3 class="text-2xl font-medium">Status</h3>
@@ -27,12 +27,12 @@
           <div>{{ data.original_language }}</div>
         </div>
         <div>
-          <h3 class="text-2xl font-medium">Budget</h3>
-          <div>${{ data.budget }}</div>
+          <h3 class="text-2xl font-medium">Type</h3>
+          <div>{{ data.type }}</div>
         </div>
-        <div>
-          <h3 class="text-2xl font-medium">Revenue</h3>
-          <div>${{ data.revenue }}</div>
+        <div v-for="item in data.networks" :key="item">
+          <h3 class="text-2xl font-medium">Network</h3>
+          <div class="hover:text-red-500 cursor-pointer">{{ item.name }}</div>
         </div>
         <div
           v-if="data.homepage"
@@ -47,6 +47,7 @@
           </a>
         </div>
         <div
+          v-if="data.videos"
           class="bg-red-600 text-gray-800 hover:text-gray-400 py-2 px-4 text-center text-2xl font-medium rounded-b-lg cursor-pointer"
           @click="showModal"
         >
@@ -62,8 +63,8 @@
         v-for="item in data.recommendations.results.slice(0, 5)"
         :key="item.id"
       >
-        <router-link :to="{ name: 'movie-detail', params: { id: item.id } }"
-          ><MovieCard :data="item" class="bg-red-400"
+        <router-link :to="{ name: 'tv-detail', params: { id: item.id } }"
+          ><TvCard :data="item" class="bg-red-400"
         /></router-link>
       </div>
     </div>
@@ -75,7 +76,7 @@
   </div>
 </template>
 <script setup>
-import MovieCard from "../components/MovieCard.vue";
+import TvCard from "../components/TvCard.vue";
 import TrailerModal from "../components/TrailerModal.vue";
 import SlideCast from "../components/SlideCast.vue";
 import ContainerDetail from "../components/ContainerDetail.vue";
@@ -90,7 +91,7 @@ watchEffect(() => {
   const fetchData = async () => {
     try {
       const response = await axiosClient.get(
-        `movie/${route.params.id}?append_to_response=credits,videos,images,recommendations`
+        `tv/${route.params.id}?append_to_response=credits,videos,images,recommendations`
       );
       data.value = response.data;
       console.log(data.value);

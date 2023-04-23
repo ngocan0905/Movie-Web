@@ -9,18 +9,23 @@ const routes = [
   },
   {
     path: "/movie/:id",
-    name: "detail",
+    name: "movie-detail",
     component: () => import("../views/MovieDetail.vue"),
   },
   {
-    path: "/series",
-    name: "series",
-    component: import("../views/SeriesPage.vue"),
+    path: "/tv/:id",
+    name: "tv-detail",
+    component: () => import("../views/TvDetail.vue"),
   },
   {
-    path: "/tv-show",
-    name: "tv-show",
-    component: import("../views/TvShowsPage.vue"),
+    path: "/tv",
+    name: "tv",
+    component: () => import("../views/SeriesPage.vue"),
+  },
+  {
+    path: "/people",
+    name: "people",
+    component: () => import("../views/PeoplePage.vue"),
   },
 ];
 
