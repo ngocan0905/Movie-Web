@@ -1,25 +1,22 @@
 <template>
-  <main class="mt-[100px]">
-    <div v-if="personList">
-      <div v-for="(person, index) in personList" :key="index">
-        <div class="tex-2xl">{{ person.name }}</div>
-      </div>
-    </div>
-  </main>
+  <div
+    v-if="data"
+    class="bg-red-200 mx-2 my-4 rounded-md overflow-hidden max-w-[300px] p-2 hover:shadow-2xl hover:scale-105"
+  >
+    <img :src="profileImg" class="h-auto w-[300px] rounded-t-md" alt="" />
+    <h3 class="text-center py-2 font-medium">{{ data.name }}</h3>
+  </div>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
-import axiosClient from "../api/axiosClient";
+import { computed } from "vue";
 
-const personList = ref(null);
-
-onMounted(async () => {
-  try {
-    const response = await axiosClient.get(`person/popular`);
-    personList.value = response.data.results;
-    console.log(personList.value);
-  } catch (error) {
-    console.log(error);
-  }
+const props = defineProps({
+  data: {
+    type: Object,
+    required: true,
+  },
+});
+const profileImg = computed(() => {
+  return `https://image.tmdb.org/t/p/w500${props.data.profile_path}`;
 });
 </script>
