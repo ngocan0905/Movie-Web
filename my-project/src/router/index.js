@@ -13,19 +13,24 @@ const routes = [
     component: () => import("../views/MovieDetail.vue"),
   },
   {
-    path: "/tv/:id",
-    name: "tv-detail",
-    component: () => import("../views/TvDetail.vue"),
-  },
-  {
     path: "/tv",
     name: "tv",
     component: () => import("../views/SeriesPage.vue"),
   },
   {
+    path: "/tv/:id",
+    name: "tv-detail",
+    component: () => import("../views/TvDetail.vue"),
+  },
+  {
     path: "/people",
     name: "people",
     component: () => import("../views/PeoplePage.vue"),
+  },
+  {
+    path: "/people/:id",
+    name: "people-detail",
+    component: () => import("../views/PeopleDetail.vue"),
   },
 ];
 

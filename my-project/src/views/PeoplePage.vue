@@ -1,8 +1,11 @@
 <template>
   <div class="mt-[100px] flex-col justify-center items-center bg-red-50">
+    <div class="text-3xl font-bold">Popular people</div>
     <div class="flex flex-wrap items-center justify-center font-medium">
-      <div v-for="person in personList" :key="person.id" class="">
-        <PeopleCard :data="person" />
+      <div v-for="person in personList" :key="person.id" class="px-8">
+        <router-link :to="{ name: 'people-detail', params: { id: person.id } }"
+          ><PeopleCard :data="person" class=""
+        /></router-link>
       </div>
     </div>
     <div class="pb-6">
@@ -55,7 +58,6 @@ const fetchPerson = async () => {
     totalPages.value = response.data.total_pages;
     totalResults.value = response.data.total_results;
     router.push({ query: { page: currentPage.value } });
-    console.log(personList.value);
   } catch (error) {
     console.log(error);
   }
@@ -66,9 +68,5 @@ watch(currentPage, () => {
 });
 const handlePageChange = (value) => {
   currentPage.value = value;
-};
-const handleGetBy = (value) => {
-  getBy.value = value;
-  fetchPerson();
 };
 </script>
