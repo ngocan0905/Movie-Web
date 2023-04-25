@@ -36,7 +36,7 @@
             <div>{{ item.vote_average }}</div>
             <router-link
               :to="{ name: 'movie-detail', params: { id: item.id } }"
-              class="bg-red-500 shadow-2xl w-fit px-5 py-3 shadow-red-900 drop-shadow-2xl hover:bg-red-700 hover:scale-105 hover:underline"
+              class="bg-slate-500 shadow-2xl text-cyan-300 rounded-lg w-fit px-5 py-3 shadow-slate-900 drop-shadow-2xl hover:bg-slate-700 hover:scale-105 hover:underline"
             >
               Watch now
             </router-link>

@@ -1,22 +1,22 @@
 <template>
   <div class="mt-[100px] grid grid-cols-12">
     <aside
-      class="col-span-2 h-auto flex flex-col bg-slate-100 border-r-2 border-black"
+      class="col-span-2 h-fit flex flex-col bg-slate-100 border-r-2 border-b-2 pb-4 rounded-br-full border-cyan-500"
     >
       <button
-        class="py-2 px-4 text-red-500 mt-4 font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-400 active:scale-95"
+        class="py-2 px-4 text-cyan-500 mt-4 font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
         @click="handleGetBy('popular')"
       >
         Popular
       </button>
       <button
-        class="py-2 px-4 text-red-500 mt-4 font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-400 active:scale-95"
+        class="py-2 px-4 text-cyan-500 mt-4 w-[70%] font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
         @click="handleGetBy('top_rated')"
       >
         Top Rated
       </button>
       <button
-        class="py-2 px-4 text-red-500 mt-4 font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-400 active:scale-95"
+        class="py-2 px-4 text-cyan-500 w-[50%] mt-4 font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
         @click="handleGetBy('upcoming')"
       >
         Up Coming
@@ -24,7 +24,7 @@
     </aside>
 
     <div
-      class="flex flex-wrap col-span-10 bg-red-50 items-center justify-center font-medium"
+      class="flex flex-wrap col-span-10 bg-slate-50 items-center justify-center font-medium"
     >
       <div v-for="movie in movieList" :key="movie.id" class="">
         <router-link :to="{ name: 'movie-detail', params: { id: movie.id } }"
@@ -42,8 +42,7 @@
                 <button
                   class="bg-gray-200 hover:bg-gray-400 border border-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                   :class="{
-                    'bg-blue-500 hover:bg-blue-700 text-white':
-                      currentPage === pageNumber,
+                    'bg-cyan-500  text-white': currentPage === pageNumber,
                   }"
                   @click="handlePageChange(pageNumber)"
                 >

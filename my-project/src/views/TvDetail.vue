@@ -32,14 +32,14 @@
         </div>
         <div v-for="item in data.networks" :key="item">
           <h3 class="text-2xl font-medium">Network</h3>
-          <div class="hover:text-red-500 cursor-pointer">{{ item.name }}</div>
+          <div class="hover:text-cyan-500 cursor-pointer">{{ item.name }}</div>
         </div>
         <div
           v-if="data.homepage"
           class="bg-gray-800 text-center py-2 mt-2 px-4 rounded-t-lg cursor-pointer"
         >
           <a
-            class="hover:text-red-400 text-2xl text-red-600 rounded-md font-medium"
+            class="hover:text-cyan-500 text-2xl text-slate-400 rounded-md font-medium"
             :href="data.homepage"
             target="_blank"
           >
@@ -48,7 +48,7 @@
         </div>
         <div
           v-if="data.videos"
-          class="bg-red-600 text-gray-800 hover:text-gray-400 py-2 px-4 text-center text-2xl font-medium rounded-b-lg cursor-pointer"
+          class="bg-slate-300 text-gray-800 hover:text-cyan-500 py-2 px-4 text-center text-2xl font-medium rounded-b-lg cursor-pointer"
           @click="showModal"
         >
           Trailer

@@ -44,3 +44,12 @@ export async function fetchGenresTv({ commit }) {
     console.log(error);
   }
 }
+export async function searchMulti({ commit }, keyword) {
+  try {
+    const { data } = await axiosClient.get(`search/multi?query=${keyword}`);
+    const res = data.results;
+    commit("setMultiSearch", res);
+  } catch (error) {
+    console.log(error);
+  }
+}

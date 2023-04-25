@@ -3,4 +3,5 @@ export default {
   tvAiringToday: [],
   genresMovie: [],
   genresTv: [],
+  multiSearch: [],
 };

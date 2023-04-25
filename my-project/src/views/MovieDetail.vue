@@ -39,7 +39,7 @@
           class="bg-gray-800 text-center py-2 mt-2 px-4 rounded-t-lg cursor-pointer"
         >
           <a
-            class="hover:text-red-400 text-2xl text-red-600 rounded-md font-medium"
+            class="hover:text-cyan-500 text-2xl text-slate-400 rounded-md font-medium"
             :href="data.homepage"
             target="_blank"
           >
@@ -47,7 +47,7 @@
           </a>
         </div>
         <div
-          class="bg-red-600 text-gray-800 hover:text-gray-400 py-2 px-4 text-center text-2xl font-medium rounded-b-lg cursor-pointer"
+          class="bg-slate-400 text-gray-600 hover:text-cyan-500 py-2 px-4 text-center text-2xl font-medium rounded-b-lg cursor-pointer"
           @click="showModal"
         >
           Trailer
@@ -63,7 +63,7 @@
         :key="item.id"
       >
         <router-link :to="{ name: 'movie-detail', params: { id: item.id } }"
-          ><MovieCard :data="item" class="bg-red-400"
+          ><MovieCard :data="item" class="bg-slate-400"
         /></router-link>
       </div>
     </div>

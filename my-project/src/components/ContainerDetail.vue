@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="movieById"
-    class="h-fit text-xl flex justify-center py-10 bg-slate-300"
+    class="h-fit text-xl text-slate-600 flex justify-center py-10 bg-slate-200"
     style=""
   >
     <div class="flex items-center max-w-[80%]">
@@ -11,7 +11,7 @@
         alt=""
       />
       <div class="ml-8">
-        <div class="text-4xl text-red-500 font-bold text-center">
+        <div class="text-4xl text-slate-700 font-bold text-center">
           {{ movieById.title || movieById.name }}
           <div v-if="movieById.release_date">
             {{ movieById.release_date.slice(0, 4) }}
@@ -30,7 +30,7 @@
             :key="index"
             class="mr-2 indent-3"
           >
-            <div class="hover:text-rose-500 cursor-pointer">
+            <div class="hover:text-cyan-500 cursor-pointer">
               {{ genres.name }}
             </div>
           </div>

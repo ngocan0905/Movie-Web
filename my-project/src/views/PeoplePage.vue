@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-[100px] flex-col justify-center items-center bg-red-50">
-    <div class="text-3xl font-bold">Popular people</div>
+  <div class="mt-[100px] flex-col justify-center items-center bg-slate-50">
+    <div class="text-3xl font-bold text-cyan-900">Popular people</div>
     <div class="flex flex-wrap items-center justify-center font-medium">
       <div v-for="person in personList" :key="person.id" class="px-8">
         <router-link :to="{ name: 'people-detail', params: { id: person.id } }"
@@ -17,9 +17,9 @@
               :key="pageNumber"
             >
               <button
-                class="bg-gray-200 hover:bg-gray-400 border border-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                class="bg-gray-200 hover:bg-slate-400 border border-slate-400 text-gray-800 font-bold py-2 px-4 rounded"
                 :class="{
-                  'bg-blue-500 hover:bg-blue-700 text-white':
+                  'bg-cyan-200 hover:bg-blue-700 text-cyan-600':
                     currentPage === pageNumber,
                 }"
                 @click="handlePageChange(pageNumber)"

@@ -15,19 +15,20 @@
       v-for="(item, index) in creditsData.credits.cast"
       :key="index"
       class="rounded-md overflow-hidden"
-    >
-      <div class="flex flex-col justify-center items-center mb-8">
-        <img
-          :src="
-            item.profile_path
-              ? `https://image.tmdb.org/t/p/original${item.profile_path}`
-              : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
-          "
-          alt=""
-          class="block cover h-auto min-h-[332px] w-auto"
-        />
-        <span class="font-medium">{{ item.name }}</span>
-      </div>
+      ><router-link :to="{ name: 'people-detail', params: { id: item.id } }"
+        ><div class="flex flex-col justify-center items-center mb-8">
+          <img
+            :src="
+              item.profile_path
+                ? `https://image.tmdb.org/t/p/original${item.profile_path}`
+                : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
+            "
+            alt=""
+            class="block cover h-auto min-h-[332px] w-auto"
+          />
+          <span class="font-medium">{{ item.name }}</span>
+        </div></router-link
+      >
     </swiper-slide>
   </swiper>
 </template>

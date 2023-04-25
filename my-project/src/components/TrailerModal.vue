@@ -3,7 +3,7 @@
     class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60"
   >
     <div
-      class="flex flex-col justify-center w-3/5 max-w-1600px h-4/5 max-h-900px bg-black p-2 rounded-md"
+      class="flex flex-col justify-center w-3/5 h-4/5 max-h-900px bg-black p-2 rounded-md"
     >
       <div v-if="hasVideo" class="relative pb-[56.25%] mb-4">
         <iframe
