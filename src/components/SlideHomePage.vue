@@ -27,7 +27,7 @@
           </div>
 
           <div
-            class="text-2xl bottom-10 flex flex-col items-center col-span-2 justify-center"
+            class="text-2xl text-cyan-100 bottom-10 flex flex-col items-center col-span-2 justify-center"
           >
             <div class="text-5xl hover:drop-shadow-2xl font-bold">
               {{ item.original_title }}
@@ -36,7 +36,7 @@
             <div>{{ item.vote_average }}</div>
             <router-link
               :to="{ name: 'movie-detail', params: { id: item.id } }"
-              class="bg-slate-500 shadow-2xl text-cyan-300 rounded-lg w-fit px-5 py-3 shadow-slate-900 drop-shadow-2xl hover:bg-slate-700 hover:scale-105 hover:underline"
+              class="bg-cyan-500 shadow-2xl rounded-lg w-fit px-5 py-3 shadow-cyan-900 drop-shadow-2xl hover:bg-cyan-700 hover:scale-105"
             >
               Watch now
             </router-link>

@@ -23,13 +23,13 @@ const routes = [
     component: () => import("../views/TvDetail.vue"),
   },
   {
-    path: "/people",
-    name: "people",
+    path: "/person",
+    name: "person",
     component: () => import("../views/PeoplePage.vue"),
   },
   {
-    path: "/people/:id",
-    name: "people-detail",
+    path: "/person/:id",
+    name: "person-detail",
     component: () => import("../views/PeopleDetail.vue"),
   },
 ];

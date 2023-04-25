@@ -1,9 +1,9 @@
 <template>
   <div
-    class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-60"
+    class="fixed inset-0 z-50 flex justify-center items-center bg-slate-900 bg-opacity-60"
   >
     <div
-      class="flex flex-col justify-center w-3/5 h-4/5 max-h-900px bg-black p-2 rounded-md"
+      class="flex flex-col justify-center w-3/5 h-4/5 max-h-900px bg-slate-800 p-2 rounded-md"
     >
       <div v-if="hasVideo" class="relative pb-[56.25%] mb-4">
         <iframe
@@ -15,7 +15,7 @@
       </div>
       <button
         @click="closeModal"
-        class="self-center py-2 px-4 bg-gray-200 text-red-700 text-xl font-medium rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
+        class="self-center py-2 px-4 bg-slate-700 text-cyan-100 text-xl font-medium rounded hover:bg-slate-600"
       >
         Close
       </button>

@@ -28,7 +28,7 @@
           </div>
 
           <div
-            class="text-2xl bottom-10 flex flex-col items-center col-span-2 justify-center"
+            class="text-2xl text-cyan-100 bottom-10 flex flex-col items-center col-span-2 justify-center"
           >
             <div class="text-5xl hover:drop-shadow-2xl font-bold">
               {{ item.name }}
@@ -37,7 +37,7 @@
             <div>{{ item.vote_average }}</div>
             <router-link
               :to="{ name: 'tv-detail', params: { id: item.id } }"
-              class="bg-red-500 shadow-2xl w-fit px-5 py-3 shadow-red-900 drop-shadow-2xl hover:bg-red-700 hover:scale-105 hover:underline"
+              class="bg-cyan-500 rounded-lg shadow-2xl w-fit px-5 py-3 shadow-cyan-900 drop-shadow-2xl hover:bg-cyan-700 hover:scale-105"
             >
               Watch now
             </router-link>

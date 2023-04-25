@@ -15,7 +15,7 @@
       v-for="(item, index) in creditsData.credits.cast"
       :key="index"
       class="rounded-md overflow-hidden"
-      ><router-link :to="{ name: 'people-detail', params: { id: item.id } }"
+      ><router-link :to="{ name: 'person-detail', params: { id: item.id } }"
         ><div class="flex flex-col justify-center items-center mb-8">
           <img
             :src="

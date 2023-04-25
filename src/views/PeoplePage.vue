@@ -3,7 +3,7 @@
     <div class="text-3xl font-bold text-cyan-900">Popular people</div>
     <div class="flex flex-wrap items-center justify-center font-medium">
       <div v-for="person in personList" :key="person.id" class="px-8">
-        <router-link :to="{ name: 'people-detail', params: { id: person.id } }"
+        <router-link :to="{ name: 'person-detail', params: { id: person.id } }"
           ><PeopleCard :data="person" class=""
         /></router-link>
       </div>

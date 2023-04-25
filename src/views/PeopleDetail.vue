@@ -5,7 +5,7 @@
         <div class="col-span-1 justify-self-end">
           <img
             :src="imageSrc"
-            alt="abc"
+            alt="image"
             class="max-w-[320px] cover rounded-lg"
           />
           <div class="flex">

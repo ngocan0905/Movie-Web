@@ -1,13 +1,17 @@
 <template>
   <main class="text-slate-100">
     <div class="relative w-screen overflow-hidden">
-      <h1 class="absolute text-4xl z-50 top-20 right-16 font-semibold">
+      <h1
+        class="absolute text-4xl z-50 top-20 right-16 font-semibold text-cyan-100"
+      >
         Now Playing ( Movie )
       </h1>
       <SlideHomePage />
     </div>
     <div class="relative w-screen overflow-hidden">
-      <h1 class="absolute text-4xl z-50 top-20 right-16 font-semibold">
+      <h1
+        class="absolute text-4xl z-50 top-20 right-16 font-semibold text-cyan-100"
+      >
         Airing Today ( TV )
       </h1>
       <SlideTvHomePage />

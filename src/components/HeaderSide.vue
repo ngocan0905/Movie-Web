@@ -23,7 +23,7 @@
           >Series</router-link
         >
         <router-link
-          :to="{ name: 'people' }"
+          :to="{ name: 'person' }"
           class="li text-cyan-500 hover:text-cyan-400"
           >People</router-link
         >
