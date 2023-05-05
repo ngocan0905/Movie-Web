@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-0 fixed left-0 z-[99] justify-between flex w-full items-center pl-16 text-md sm:text-2xl lg:text-3xl h-[100px] bg-gradient-to-b from-slate-900 to-transparent"
+    class="top-0 fixed left-0 z-[99] justify-between flex w-full items-center pl-16 text-md sm:text-2xl lg:text-3xl h-[100px] bg-slate-700"
   >
     <div class="font-bold cursor-pointer">
       <router-link

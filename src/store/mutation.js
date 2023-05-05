@@ -1,8 +1,5 @@
-export function setMovieNowPlaying(state, data) {
-  state.movieNowPlaying = data;
-}
-export function setTvAiringToday(state, data) {
-  state.tvAiringToday = data;
+export function setTrending(state, data) {
+  state.trending = data;
 }
 export function setGenresMovie(state, genres) {
   state.genresMovie = genres;

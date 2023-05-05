@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center bg-slate-800 bg-opacity-60"
   >
     <div
-      class="flex relative flex-col w-3/5 h-4/5 justify-start bg-slate-900 rounded-lg"
+      class="flex relative flex-col w-3/5 h-4/5 justify-start bg-slate-900 rounded-lg overflow-hidden"
     >
       <button
         type="button"
@@ -17,7 +17,7 @@
           type="text"
           v-model="keyword"
           placeholder="Search for movie, tv, people,.."
-          class="py-2 px-4 text-sm text-cyan-100 border-cyan-400 border-b-2 focus:outline-0 bg-inherit w-full rounded-full"
+          class="py-3 px-4 text-sm text-cyan-100 border-cyan-400 border-b-2 focus:outline-0 bg-inherit w-full rounded-full"
         />
         <ul class="scroll-m-96 max-h-[720px] overflow-y-auto scrollbar-hide">
           <li

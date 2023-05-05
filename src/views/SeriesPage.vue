@@ -26,7 +26,7 @@
     </aside>
 
     <div
-      class="flex flex-wrap col-span-10 bg-slate-50 items-center justify-center font-medium"
+      class="flex flex-wrap col-span-10 bg-slate-50 justify-center font-medium"
     >
       <div v-for="film in tvList" :key="film.id" class="">
         <router-link :to="{ name: 'tv-detail', params: { id: film.id } }"

@@ -1,6 +1,5 @@
 export default {
-  movieNowPlaying: [],
-  tvAiringToday: [],
+  trending: [],
   genresMovie: [],
   genresTv: [],
   multiSearch: [],
