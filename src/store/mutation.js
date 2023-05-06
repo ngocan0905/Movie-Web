@@ -10,3 +10,6 @@ export function setGenresTv(state, genres) {
 export function setMultiSearch(state, value) {
   state.multiSearch = value;
 }
+export function setGenres(state, genres) {
+  state.genres = genres;
+}

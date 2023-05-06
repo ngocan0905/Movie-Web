@@ -25,7 +25,7 @@
   </div>
 </template>
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref } from "vue";
 const props = defineProps({
   option: {
     type: String,

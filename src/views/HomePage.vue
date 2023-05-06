@@ -1,5 +1,5 @@
 <template>
-  <main class="mt-[100px] flex flex-col items-center">
+  <main class="my-[100px] flex flex-col items-center">
     <div
       class="bg-center bg-home-page text-3xl bg-cover rounded-b-xl bg-no-repeat h-[300px] w-[800px] relative"
     >
@@ -18,7 +18,7 @@
           :handleOptionChange="handleOptionChange"
         />
       </div>
-      <div v-if="loading">loading..</div>
+      <div v-if="loading">Loading..</div>
       <div v-else>
         <SlideTrending :data="trendingResults" />
       </div>
@@ -26,7 +26,7 @@
   </main>
 </template>
 <script setup>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref, computed, watch } from "vue";
 import SlideTrending from "../components/SlideTrending.vue";
 import SwitchOption from "../components/SwitchOption.vue";
 import axiosClient from "../api/axiosClient";
@@ -35,16 +35,18 @@ const data = ref([]);
 const loading = ref(true);
 const getBy = ref("day");
 onMounted(async () => {
+  await fetchData();
+});
+async function fetchData() {
   try {
     const res = await axiosClient.get(`trending/all/${getBy.value}`);
     data.value = res.data.results || [];
-    console.log(data.value);
   } catch (error) {
     console.log(error);
   } finally {
     loading.value = false;
   }
-});
+}
 function handleOptionChange(newOption) {
   return (getBy.value = newOption);
 }
@@ -56,8 +58,17 @@ const trendingResults = computed(() => {
       name: results.name || results.title,
       type: results.media_type + "-detail",
       poster: results.poster_path,
+      genres: results.genre_ids,
+      genreType: results.media_type,
     };
   });
 });
+watch(
+  () => getBy.value,
+  async () => {
+    loading.value = true;
+    await fetchData();
+  }
+);
 </script>
 <style></style>
