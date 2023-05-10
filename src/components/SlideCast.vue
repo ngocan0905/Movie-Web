@@ -9,6 +9,20 @@
     :pagination="{
       clickable: true,
     }"
+    :breakpoints="{
+      1260: {
+        slidesPerView: 5,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      360: {
+        slidesPerView: 2,
+      },
+    }"
     class="mySwiper"
   >
     <swiper-slide

@@ -8,9 +8,9 @@
       <button
         type="button"
         @click="closeModal"
-        class="text-white w-fit px-2 absolute top-0 right-[-30px]"
+        class="text-white w-fit px-2 absolute top-1 right-2"
       >
-        X
+        Close
       </button>
       <div class="h-full">
         <input

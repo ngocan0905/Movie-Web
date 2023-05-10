@@ -9,12 +9,29 @@
     :pagination="{
       clickable: true,
     }"
+    :breakpoints="{
+      1460: {
+        slidesPerView: 6,
+      },
+      1260: {
+        slidesPerView: 5,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      360: {
+        slidesPerView: 2,
+      },
+    }"
     class="mt-4"
   >
     <swiper-slide
       v-for="item in data"
       :key="item.id"
-      class="bg-slate-200 rounded-md p-2 min-h-[550px] hover:bg-slate-300"
+      class="bg-slate-200 rounded-md p-2 min-h-[350px] hover:bg-slate-300"
     >
       <router-link
         :to="{ name: `${item.type}`, params: { id: item.id } }"

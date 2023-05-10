@@ -1,9 +1,9 @@
 <template>
-  <main class="my-[100px] flex flex-col items-center">
+  <main class="mt-[100px] flex flex-col items-center">
     <div
-      class="bg-center bg-home-page text-3xl bg-cover rounded-b-xl bg-no-repeat h-[300px] w-[800px] relative"
+      class="bg-center bg-home-page text-3xl bg-cover rounded-b-xl bg-no-repeat h-[220px] w-[800px] relative"
     >
-      <h1 class="p-4 text-5xl absolute text-cyan-100">
+      <h1 class="p-4 text-5xl absolute text-cyan-200">
         Welcome.
         <p class="text-3xl">
           Millions of movies, TV shows and people to discover. Explore now.
@@ -12,7 +12,7 @@
     </div>
     <div class="w-full px-20 mt-10">
       <div class="flex items-end justify-start">
-        <h1 class="text-3xl mx-8 font-bold">Trending</h1>
+        <h1 class="text-3xl mx-8 font-bold text-cyan-500">Trending</h1>
         <SwitchOption
           :option="getBy"
           :handleOptionChange="handleOptionChange"

@@ -63,7 +63,7 @@
         :key="item.id"
       >
         <router-link :to="{ name: 'movie-detail', params: { id: item.id } }"
-          ><MovieCard :data="item" class="bg-slate-400"
+          ><MovieCard :data="item" class=""
         /></router-link>
       </div>
     </div>
