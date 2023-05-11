@@ -1,7 +1,9 @@
 <template>
   <div class="mt-[100px] flex-col justify-center items-center bg-slate-50">
-    <div class="text-3xl font-bold text-cyan-900">Popular people</div>
-    <div class="flex flex-wrap items-center justify-center font-medium">
+    <div class="text-3xl font-bold text-cyan-900 text-center w-full">
+      Popular people
+    </div>
+    <div class="flex flex-wrap items-center justify-center font-medium mx-10">
       <div v-for="person in personList" :key="person.id" class="px-8">
         <router-link :to="{ name: 'person-detail', params: { id: person.id } }"
           ><PeopleCard :data="person" class=""

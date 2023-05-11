@@ -11,7 +11,6 @@
         class="py-2 px-4 cursor-pointer bg-transparent outline-none relative text-center border-0"
         type="button"
         @click="dayClick"
-        id="day"
       >
         Today
       </button>
@@ -19,7 +18,6 @@
         class="py-2 px-4 cursor-pointer bg-transparent outline-none relative text-center border-0"
         type="button"
         @click="tvClick"
-        id="week"
       >
         This Week
       </button>
@@ -28,8 +26,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
-const day = document.getElementById("day");
-const week = document.getElementById("week");
+
 const props = defineProps({
   option: {
     type: String,
@@ -42,7 +39,6 @@ const btn = ref(null);
 function dayClick() {
   btn.value.style.left = "0";
   props.handleOptionChange("day");
-  day.addEventListener("click", day.classList.add("text-cyan-50"));
 }
 function tvClick() {
   btn.value.style.left = "110px";

@@ -1,32 +1,44 @@
 <template>
   <div class="mt-[100px] grid grid-cols-12">
-    <aside class="col-span-2">
-      <div
-        class="w-1/6 fixed h-fit pb-4 rounded-br-full flex flex-col bg-slate-100 border-r-2 border-b-2 border-cyan-500 col-span-2"
+    <aside
+      class="col-span-3 h-fit flex flex-col bg-transparent mx-2 rounded-lg"
+    >
+      <section
+        class="text-slate-700 fixed top-32 left-16 w-1/5 px-4 py-3 rounded-lg shadow-2xl"
       >
-        <button
-          class="py-2 px-4 text-cyan-500 mt-4 w-[90%] font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
-          @click="handleGetBy('popular')"
-        >
-          Popular
-        </button>
-        <button
-          class="py-2 px-4 text-cyan-500 mt-4 w-[70%] font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
-          @click="handleGetBy('top_rated')"
-        >
-          Top Rated
-        </button>
-        <button
-          class="py-2 px-4 text-cyan-500 mt-4 w-[50%] font-medium bg-slate-300 mx-4 rounded-r-full hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
-          @click="handleGetBy('on_the_air')"
-        >
-          On The Air
-        </button>
-      </div>
+        <h1 class="text-3xl font-semibold flex px-4 justify-between">
+          Option :
+          <div class="capitalize px-2">{{ getBy }}</div>
+          <div @click="changeOption">
+            <ChevronDoubleLeftIcon class="h-8 w-8" v-if="!option" />
+            <ChevronDoubleDownIcon class="h-8 w-8" v-else />
+          </div>
+        </h1>
+        <div v-if="option" class="delay-500 ease-out duration-300">
+          <button
+            class="py-2 px-4 text-cyan-500 mt-4 w-full font-medium hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
+            @click="handleGetBy('popular')"
+          >
+            Popular
+          </button>
+          <button
+            class="py-2 px-4 text-cyan-500 mt-4 w-full font-medium hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
+            @click="handleGetBy('top_rated')"
+          >
+            Top Rated
+          </button>
+          <button
+            class="py-2 px-4 text-cyan-500 mt-4 w-full font-medium hover:bg-slate-500 hover:text-cyan-100 active:scale-95"
+            @click="handleGetBy('on_the_air')"
+          >
+            On The Air
+          </button>
+        </div>
+      </section>
     </aside>
 
     <div
-      class="flex flex-wrap col-span-10 bg-slate-50 justify-center font-medium"
+      class="flex flex-wrap col-span-9 bg-slate-50 justify-center font-medium"
     >
       <div v-for="film in tvList" :key="film.id" class="">
         <router-link :to="{ name: 'tv-detail', params: { id: film.id } }"
@@ -59,6 +71,10 @@
   </div>
 </template>
 <script setup>
+import {
+  ChevronDoubleLeftIcon,
+  ChevronDoubleDownIcon,
+} from "@heroicons/vue/24/outline";
 import TvCard from "../components/TvCard.vue";
 import axiosClient from "../api/axiosClient";
 import { computed, onMounted, reactive, ref, watch } from "vue";
@@ -66,6 +82,7 @@ import { useRoute, useRouter } from "vue-router";
 const route = useRoute();
 const router = useRouter();
 const getBy = ref("popular");
+const option = ref(true);
 const tvAll = reactive({ tvs: [] });
 const tvList = computed(() => tvAll.tvs);
 const totalResults = ref(1);
@@ -98,5 +115,8 @@ const handleGetBy = (value) => {
   getBy.value = value;
   fetchTvs();
 };
+function changeOption() {
+  option.value = !option.value;
+}
 </script>
 <style scoped></style>
