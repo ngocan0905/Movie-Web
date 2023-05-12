@@ -8,7 +8,8 @@
       >
         <h1 class="text-3xl font-semibold flex px-4 justify-between">
           Option :
-          <div class="capitalize px-2">{{ getBy }}</div>
+          <div v-if="getBy == `top_rated`">Top Rated</div>
+          <div class="capitalize px-2" v-else>{{ getBy }}</div>
           <div @click="changeOption">
             <ChevronDoubleLeftIcon class="h-8 w-8" v-if="!option" />
             <ChevronDoubleDownIcon class="h-8 w-8" v-else />
@@ -48,15 +49,15 @@
       <div class="text-center my-4">
         <div v-if="totalPages > 1">
           <nav class="block">
-            <ul class="flex pl-0 rounded list-none flex-wrap">
+            <ul class="flex pl-0 rounded-full list-none flex-wrap">
               <li
                 v-for="pageNumber in Math.min(totalPages, 10)"
                 :key="pageNumber"
               >
                 <button
-                  class="bg-gray-200 hover:bg-gray-400 border border-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                  class="bg-cyan-200 hover:bg-cyan-400 border rounded-full border-cyan-400 mx-1 font-bold py-2 px-4"
                   :class="{
-                    'bg-cyan-500  text-white': currentPage === pageNumber,
+                    'bg-cyan-500  text-cyan-100': currentPage === pageNumber,
                   }"
                   @click="handlePageChange(pageNumber)"
                 >

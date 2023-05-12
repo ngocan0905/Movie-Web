@@ -8,7 +8,14 @@
       >
         <h1 class="text-3xl font-semibold flex px-4 justify-between">
           Option :
-          <div class="capitalize px-2">{{ getBy }}</div>
+
+          <div class="capitalize px-2" v-if="getBy == `on_the_air`">
+            On The Air
+          </div>
+          <div class="capitalize px-2" v-else-if="getBy == `top_rated`">
+            Top Rated
+          </div>
+          <div class="capitalize px-2" v-else>{{ getBy }}</div>
           <div @click="changeOption">
             <ChevronDoubleLeftIcon class="h-8 w-8" v-if="!option" />
             <ChevronDoubleDownIcon class="h-8 w-8" v-else />
@@ -54,9 +61,9 @@
                 :key="pageNumber"
               >
                 <button
-                  class="bg-gray-200 mx-1 hover:bg-slate-400 border border-slate-200 text-slate-600 font-bold py-2 px-4 rounded"
+                  class="bg-cyan-200 mx-1 hover:bg-cyan-400 border border-cyan-400 font-bold py-2 px-4 rounded-full"
                   :class="{
-                    'bg-cyan-700   text-slate-900': currentPage === pageNumber,
+                    'bg-cyan-500  text-cyan-100': currentPage === pageNumber,
                   }"
                   @click="handlePageChange(pageNumber)"
                 >

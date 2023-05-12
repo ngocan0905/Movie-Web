@@ -19,10 +19,9 @@
               :key="pageNumber"
             >
               <button
-                class="bg-gray-200 hover:bg-slate-400 border border-slate-400 text-gray-800 font-bold py-2 px-4 rounded"
+                class="bg-cyan-200 hover:bg-cyan-400 border border-cyan-400 font-bold py-2 px-4 mx-2 rounded-full"
                 :class="{
-                  'bg-cyan-200 hover:bg-blue-700 text-cyan-600':
-                    currentPage === pageNumber,
+                  'bg-cyan-500 text-cyan-100': currentPage === pageNumber,
                 }"
                 @click="handlePageChange(pageNumber)"
               >

@@ -41,6 +41,7 @@
             class="block cover h-auto min-h-[332px] w-auto rounded-t-lg"
           />
           <span class="font-medium">{{ item.name }}</span>
+          <span class="font-thin">{{ item.character }}</span>
         </div></router-link
       >
     </swiper-slide>
