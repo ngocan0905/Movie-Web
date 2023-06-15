@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center bg-slate-800 bg-opacity-60"
   >
     <div
-      class="flex relative flex-col w-3/5 h-4/5 justify-start bg-slate-900 rounded-lg overflow-hidden"
+      class="flex relative flex-col w-full lg:w-3/5 h-4/5 justify-start bg-slate-900 rounded-lg overflow-hidden mx-2"
     >
       <button
         type="button"
@@ -14,6 +14,7 @@
       </button>
       <div class="h-full">
         <input
+          ref="searchInput"
           type="text"
           v-model="keyword"
           placeholder="Search for movie, tv, people,.."
@@ -48,6 +49,7 @@ import { useStore } from "vuex";
 import { computed, onMounted, ref, watch } from "vue";
 const store = useStore();
 const keyword = ref("");
+const searchInput = ref("");
 const emits = defineEmits(["close-modal"]);
 const searchResults = computed(() => {
   return store.state.multiSearch.map((result) => {
@@ -73,6 +75,7 @@ watch(keyword, (newKeyword, oldKeyword) => {
 });
 onMounted(() => {
   search();
+  searchInput.value.focus();
 });
 
 function closeModal() {

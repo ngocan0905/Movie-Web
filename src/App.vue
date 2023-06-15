@@ -1,7 +1,7 @@
 <template>
-  <div class="">
+  <div class="w-full h-full">
     <HeaderSide /><NavigationSide />
-    <main class="">
+    <main>
       <router-view></router-view>
     </main>
 
@@ -10,7 +10,6 @@
 </template>
 <script setup>
 import HeaderSide from "./components/HeaderSide.vue";
-// import FooterSide from "./components/FooterSide.vue";
 import NavigationSide from "./components/NavigationSide.vue";
 </script>
 <style>

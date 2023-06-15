@@ -1,21 +1,21 @@
 <template>
-  <div class="form-box">
+  <div class="">
     <div
-      class="w-[220px] font-semibold flex mx-auto rounded-3xl bg-white text-cyan-600 relative border-2 justify-between"
+      class="w-[220px] font-semibold flex mx-auto rounded-3xl bg-white text-cyan-600 relative border-2"
     >
       <div
         ref="btn"
-        class="left-0 top-0 absolute w-[110px] h-full bg-slate-400 rounded-3xl duration-500 ease-in-out"
+        class="left-0 top-0 absolute w-1/2 h-full bg-slate-400 rounded-3xl duration-500 ease-in-out"
       ></div>
       <button
-        class="py-2 px-4 cursor-pointer bg-transparent outline-none relative text-center border-0"
+        class="py-2 px-4 w-1/2 cursor-pointer outline-none relative text-sm lg:text-base flex bg-transparent border-0 justify-center"
         type="button"
         @click="dayClick"
       >
-        Today
+        <h3>Today</h3>
       </button>
       <button
-        class="py-2 px-4 cursor-pointer bg-transparent outline-none relative text-center border-0"
+        class="py-2 px-4 w-1/2 cursor-pointer outline-none bg-transparent relative text-sm lg:text-base flex border-0 justify-center"
         type="button"
         @click="tvClick"
       >

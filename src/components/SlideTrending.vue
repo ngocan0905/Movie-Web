@@ -6,9 +6,6 @@
     :spaceBetween="30"
     :navigation="true"
     :grabCursor="true"
-    :pagination="{
-      clickable: true,
-    }"
     :breakpoints="{
       1460: {
         slidesPerView: 6,
@@ -31,7 +28,7 @@
     <swiper-slide
       v-for="item in data"
       :key="item.id"
-      class="bg-slate-200 rounded-md p-2 min-h-[350px] hover:bg-slate-300"
+      class="bg-slate-200 rounded-md p-2 lg:min-h-[520px] min-h-[360px] text-center hover:bg-slate-300"
     >
       <router-link
         :to="{ name: `${item.type}`, params: { id: item.id } }"
@@ -43,7 +40,7 @@
           class="object-cover rounded-t-md"
         />
         {{ item.name }}
-        <div class="flex flex-wrap">
+        <div class="lg:flex hidden flex-wrap">
           <div v-for="genre in item.genres" :key="genre.id" class="">
             <div
               class="border-slate-500 text-sm border mx-2 my-1 bg-inherit rounded-lg px-2 py-1"
@@ -71,7 +68,6 @@ const props = defineProps({
   },
 });
 
-console.log(props.data);
 const store = useStore();
 const genres = computed(() => store.state.genres);
 onMounted(async () => {

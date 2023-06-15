@@ -1,40 +1,45 @@
 <template>
   <div class="mt-[100px] flex-col justify-center items-center bg-slate-50">
-    <div class="text-3xl font-bold text-cyan-900 text-center w-full">
+    <div class="text-xl lg:text-3xl font-bold text-cyan-900 text-center w-full">
       Popular people
     </div>
-    <div class="flex flex-wrap items-center justify-center font-medium mx-10">
-      <div v-for="person in personList" :key="person.id" class="px-8">
+    <div class="flex flex-wrap items-center justify-center font-medium">
+      <div v-for="person in personList" :key="person.id" class="">
         <router-link :to="{ name: 'person-detail', params: { id: person.id } }"
-          ><PeopleCard :data="person" class=""
+          ><PeopleCard :data="person" class="duration-300"
         /></router-link>
       </div>
     </div>
-    <div class="pb-6">
-      <div v-if="totalPages > 1">
-        <nav class="block">
-          <ul class="flex pl-0 rounded list-none flex-wrap justify-center">
-            <li
-              v-for="pageNumber in Math.min(totalPages, 10)"
-              :key="pageNumber"
-            >
-              <button
-                class="bg-cyan-200 hover:bg-cyan-400 border border-cyan-400 font-bold py-2 px-4 mx-2 rounded-full"
-                :class="{
-                  'bg-cyan-500 text-cyan-100': currentPage === pageNumber,
-                }"
-                @click="handlePageChange(pageNumber)"
-              >
-                {{ pageNumber }}
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+  </div>
+  <div class="text-center my-4 flex w-full justify-between">
+    <button
+      v-if="currentPage > 1"
+      @click="handlePageChange(currentPage - 1)"
+      class="flex items-center justify-start font-bold text-slate-600"
+    >
+      <ChevronLeftIcon class="h-10 w-10 text-gray-500 font-bold" />
+      Prev
+    </button>
+    <button
+      v-else
+      disabled
+      class="flex items-center justify-start font-bold text-slate-200"
+    >
+      <ChevronLeftIcon class="h-10 w-10 text-gray-200 font-bold" />
+      Prev
+    </button>
+
+    <button
+      @click="handlePageChange(currentPage + 1)"
+      class="flex items-center justify-items-end font-bold text-slate-600"
+    >
+      Next
+      <ChevronRightIcon class="h-10 w-10 text-slate-600" />
+    </button>
   </div>
 </template>
 <script setup>
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/outline";
 import { onMounted, ref, watch } from "vue";
 import axiosClient from "../api/axiosClient";
 import { useRoute, useRouter } from "vue-router";

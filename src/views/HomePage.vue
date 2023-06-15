@@ -1,7 +1,7 @@
 <template>
-  <main class="mt-[100px] flex flex-col items-center">
+  <main class="h-full w-full flex flex-col items-center">
     <div
-      class="bg-center bg-home-page text-3xl bg-cover rounded-b-xl bg-no-repeat h-[220px] w-[800px] relative"
+      class="bg-center mt-[5%] bg-home-page text-3xl bg-cover lg:rounded-b-xl bg-no-repeat h-[300px] lg:w-1/2 w-full relative flex items-center"
     >
       <h1 class="p-4 text-5xl absolute text-cyan-200">
         Welcome.
@@ -12,7 +12,9 @@
     </div>
     <div class="w-full px-20 mt-10">
       <div class="flex items-end justify-start">
-        <h1 class="text-3xl mx-8 font-bold text-cyan-500">Trending</h1>
+        <h1 class="lg:text-3xl text-xl mx-8 font-bold text-cyan-500">
+          Trending
+        </h1>
         <SwitchOption
           :option="getBy"
           :handleOptionChange="handleOptionChange"

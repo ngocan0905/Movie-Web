@@ -6,9 +6,6 @@
     :spaceBetween="30"
     :navigation="true"
     :grabCursor="true"
-    :pagination="{
-      clickable: true,
-    }"
     :breakpoints="{
       1260: {
         slidesPerView: 6,
@@ -20,7 +17,7 @@
         slidesPerView: 3,
       },
       360: {
-        slidesPerView: 2,
+        slidesPerView: 3,
       },
     }"
     class="mySwiper"
@@ -30,11 +27,11 @@
       :key="index"
       class="rounded-md overflow-hidden"
     >
-      <div class="flex flex-col justify-center items-center">
+      <div class="flex">
         <img
-          :src="`https://image.tmdb.org/t/p/original${item.file_path}`"
+          :src="`https://image.tmdb.org/t/p/w500${item.file_path}`"
           alt=""
-          class="block cover h-auto max-h-[330px] w-auto"
+          class="block cover h-auto w-auto"
         />
       </div>
     </swiper-slide>

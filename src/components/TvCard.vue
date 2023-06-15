@@ -1,11 +1,13 @@
 <template>
   <div
     v-if="data"
-    class="bg-slate-200 mx-2 my-4 rounded-md overflow-hidden max-w-[300px] min-h-[550px] p-2 hover:shadow-2xl hover:scale-105"
+    class="bg-slate-200 mx-2 my-4 rounded-md overflow-hidden max-w-[150px] lg:max-w-[300px] min-h-[280px] lg:min-h-[560px] p-2 hover:shadow-2xl hover:scale-105"
   >
     <img :src="imageSrc" class="h-auto w-[300px] rounded-t-md" alt="" />
-    <h3 class="text-center py-2 font-medium">{{ data.name }}</h3>
-    <div class="flex flex-wrap">
+    <h3 class="text-center py-2 font-medium text-base lg:text-xl">
+      {{ data.name }}
+    </h3>
+    <div class="hidden lg:flex flex-wrap">
       <div v-for="item in data.genre_ids" :key="item" class="">
         <div
           class="border-slate-500 text-sm border mx-2 my-1 bg-inherit rounded-lg px-2 py-1"

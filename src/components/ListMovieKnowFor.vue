@@ -3,7 +3,7 @@
     <div class="text-2xl mb-2 mt-4 font-semibold">Acting</div>
     <ul v-for="item in listMovie.movie_credits.cast">
       <router-link :to="{ name: 'movie-detail', params: { id: item.id } }">
-        <li class="border-t px-2 py-2 flex justify-between hover:bg-cyan-100">
+        <li class="border-t py-2 flex justify-between hover:bg-cyan-100">
           <div class="font-medium flex">
             {{ item.original_title }}
             <span class="font-thin mx-2">as</span>

@@ -1,46 +1,50 @@
 <template>
-  <div class="mt-[100px] mb-16" v-if="data">
-    <div class="grid grid-cols-12 pt-[50px]">
+  <div class="mt-[20%] lg:mt-[10%] mb-[5%] mx-2" v-if="data">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
       <aside class="grid grid-cols-1 justify-center items-start col-span-4">
-        <div class="col-span-1 justify-self-end">
+        <div class="col-span-1 justify-self-center flex lg:flex-col">
           <img
             :src="imageSrc"
             alt="image"
-            class="max-w-[320px] cover rounded-lg"
+            class="max-w-[320px] h-auto cover rounded-lg"
           />
-          <div class="flex">
-            <div class="text-2xl font-medium">Personal Info</div>
-          </div>
-          <div class="">
-            <div class="text-lg font-medium">Know for</div>
-            <div>{{ data.known_for_department }}</div>
-          </div>
-          <div class="">
-            <div class="text-lg font-medium">Known Credits</div>
-            <div>{{ knownCreditsCount }}</div>
-          </div>
-          <div class="">
-            <div class="text-lg font-medium">Gender</div>
-            <div>{{ getGender(data.gender) }}</div>
-          </div>
-          <div class="">
-            <div class="text-lg font-medium">Birthday</div>
-            <div>{{ data.birthday }}</div>
-          </div>
-          <div class="">
-            <div class="text-lg font-medium">Place of birth</div>
-            <div>{{ data.place_of_birth }}</div>
-          </div>
-          <div class="">
-            <div class="text-lg font-medium">Also Known As</div>
-            <div class="flex flex-col" v-for="item in data.also_known_as">
-              {{ JSON.stringify(item).replace(/\"/g, "") }}
+          <div class="mx-2">
+            <div class="">
+              <div class="text-2xl font-medium">Personal Info</div>
+            </div>
+            <div class="">
+              <div class="text-lg font-medium">Know for</div>
+              <div>{{ data.known_for_department }}</div>
+            </div>
+            <div class="">
+              <div class="text-lg font-medium">Known Credits</div>
+              <div>{{ knownCreditsCount }}</div>
+            </div>
+            <div class="">
+              <div class="text-lg font-medium">Gender</div>
+              <div>{{ getGender(data.gender) }}</div>
+            </div>
+            <div class="">
+              <div class="text-lg font-medium">Birthday</div>
+              <div>{{ data.birthday }}</div>
+            </div>
+            <div class="">
+              <div class="text-lg font-medium">Place of birth</div>
+              <div>{{ data.place_of_birth }}</div>
+            </div>
+            <div class="">
+              <div class="text-lg font-medium">Also Known As</div>
+              <div class="flex flex-col" v-for="item in data.also_known_as">
+                {{ JSON.stringify(item).replace(/\"/g, "") }}
+              </div>
             </div>
           </div>
         </div>
       </aside>
-      <main class="col-span-8 grid grid-cols-8">
-        <div class="col-span-6 ml-16">
+      <main
+        class="col-span-8 lg:grid grid-cols-8 flex flex-col justify-center w-full"
+      >
+        <div class="col-span-6">
           <div class="">
             <div class="text-4xl font-bold">{{ data.name }}</div>
           </div>

@@ -1,17 +1,17 @@
 <template>
   <div
     v-if="movieById"
-    class="h-fit text-xl text-slate-600 flex justify-center py-10 bg-slate-200"
+    class="h-fit text-base lg:text-xl text-slate-600 flex justify-center py-10 bg-slate-200"
     style=""
   >
-    <div class="flex items-center max-w-[80%]">
+    <div class="flex flex-col lg:flex-row lg:mx-4 items-center w-full">
       <img
         :src="`https://image.tmdb.org/t/p/original${movieById.poster_path}`"
-        class="h-[500px] w-auto rounded-md"
+        class="h-[300px] lg:h-[500px] w-auto rounded-md"
         alt=""
       />
       <div class="ml-8">
-        <div class="text-4xl text-slate-700 font-bold text-center">
+        <div class="lg:text-4xl text-2xl text-slate-700 font-bold text-center">
           {{ movieById.title || movieById.name }}
           <div v-if="movieById.release_date">
             {{ movieById.release_date.slice(0, 4) }}

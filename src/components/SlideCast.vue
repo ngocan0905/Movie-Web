@@ -6,9 +6,6 @@
     :spaceBetween="30"
     :navigation="true"
     :grabCursor="true"
-    :pagination="{
-      clickable: true,
-    }"
     :breakpoints="{
       1260: {
         slidesPerView: 5,
@@ -28,7 +25,7 @@
     <swiper-slide
       v-for="(item, index) in creditsData.credits.cast"
       :key="index"
-      class=" "
+      class="text-base lg:text-xl"
       ><router-link :to="{ name: 'person-detail', params: { id: item.id } }"
         ><div class="flex flex-col justify-center items-center mb-8">
           <img
@@ -38,7 +35,7 @@
                 : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'
             "
             alt=""
-            class="block cover h-auto min-h-[332px] w-auto rounded-t-lg"
+            class="block cover h-auto min-h-[160px] lg:min-h-[332px] w-auto rounded-t-lg"
           />
           <span class="font-medium">{{ item.name }}</span>
           <span class="font-thin">{{ item.character }}</span>

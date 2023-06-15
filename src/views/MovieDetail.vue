@@ -5,33 +5,33 @@
     <ContainerDetail :movieById="data" />
     <hr class="border-t-2 mx-8 mt-8" />
     <div
-      class="grid grid-cols-12 text-xl justify-center items-center mx-10"
+      class="grid grid-cols-1 lg:grid-cols-12 text-xl justify-center items-center mx-10"
       v-if="data"
     >
       <div class="col-span-9">
         <h1 class="text-2xl font-medium my-4">Cast</h1>
         <SlideCast :creditsData="data" />
       </div>
-      <hr class="border-l-2 h-[450px] w-0" />
-      <aside class="col-span-2">
+      <hr class="border-l-2 h-[450px] w-0 lg:flex hidden" />
+      <aside class="col-span-2 text-base lg:text-xl">
         <div>
-          <h3 class="text-2xl font-medium">Original Title</h3>
+          <h3 class="text-xl lg:text-2xl font-medium">Original Title</h3>
           <div>{{ data.original_title }}</div>
         </div>
         <div>
-          <h3 class="text-2xl font-medium">Status</h3>
+          <h3 class="text-xl lg:text-2xl font-medium">Status</h3>
           <div>{{ data.status }}</div>
         </div>
         <div>
-          <h3 class="text-2xl font-medium">Original Language</h3>
+          <h3 class="text-xl lg:text-2xl font-medium">Original Language</h3>
           <div>{{ data.original_language }}</div>
         </div>
         <div>
-          <h3 class="text-2xl font-medium">Budget</h3>
+          <h3 class="text-xl lg:text-2xl font-medium">Budget</h3>
           <div>${{ data.budget }}</div>
         </div>
         <div>
-          <h3 class="text-2xl font-medium">Revenue</h3>
+          <h3 class="text-xl lg:text-2xl font-medium">Revenue</h3>
           <div>${{ data.revenue }}</div>
         </div>
         <div
@@ -55,15 +55,18 @@
       </aside>
     </div>
     <hr class="w-full h-0 border-t-2 my-8" />
-    <div class="text-2xl font-medium mx-10">Recommendations</div>
-    <div class="flex text-2xl mx-10" v-if="data && data.recommendations">
+    <div class="text-xl lg:text-2xl font-medium mx-10">Recommendations</div>
+    <div
+      class="flex flex-wrap justify-center text-2xl lg:mx-10"
+      v-if="data && data.recommendations"
+    >
       <div
         class="text-2xl font-medium"
         v-for="item in data.recommendations.results.slice(0, 5)"
         :key="item.id"
       >
         <router-link :to="{ name: 'movie-detail', params: { id: item.id } }"
-          ><MovieCard :data="item" class=""
+          ><MovieCard :data="item" class="duration-300"
         /></router-link>
       </div>
     </div>
